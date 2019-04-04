@@ -1,13 +1,12 @@
-import kivy, psutil
-
+import psutil
 from kivy.app import App
-from kivy.uix.button import Button
-from kivy.uix.boxlayout import BoxLayout
-from kivy.logger import Logger
 from kivy.core.window import Window
+from kivy.logger import Logger
+from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.button import Button
 from kivy.uix.label import Label
 from kivy.uix.popup import Popup
-from kivy.lang import Builder
+
 
 class appLayout(BoxLayout):
     def __init__(self):
@@ -24,9 +23,9 @@ class appLayout(BoxLayout):
 
     def clk(self, obj):
         result = psutil.cpu_percent()
-        popup = Popup(title='CPU Usage',
-                      content=Label(text='Your current CPU usage is: ' + str(result) + '%'),
-                      size_hint=(None, None), size=(400, 400))
+        popup = Popup(title = 'CPU Usage',
+                      size_hint=(None, None),
+                      content = Label(text='Your current CPU usage is: ' + str(result) + '%'), size=(400, 400))
         popup.open()
 
     def clkEXIT(self, obj):

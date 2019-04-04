@@ -25,7 +25,8 @@ class appLayout(BoxLayout):
         result = psutil.cpu_percent()
         popup = Popup(title = 'CPU Usage',
                       size_hint=(None, None),
-                      content = Label(text='Your current CPU usage is: ' + str(result) + '%'), size=(400, 400))
+                      content = Label(text='Your current CPU usage is: ' + str(result) + '%'),
+                      size=(400, 400))
         popup.open()
 
     def clkEXIT(self, obj):

@@ -6,6 +6,8 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.logger import Logger
 from kivy.core.window import Window
 from kivy.uix.label import Label
+from kivy.uix.popup import Popup
+from kivy.lang import Builder
 
 class appLayout(BoxLayout):
     def __init__(self):
@@ -21,10 +23,11 @@ class appLayout(BoxLayout):
         self.add_widget(btnEXIT)
 
     def clk(self, obj):
-        ##CPULabel = Label(text = "Your CPU usage is currently: ")
-        ##self.add_widget(CPULabel)
-        print("Your CPU usage is currently: ")
-        print(psutil.cpu_percent())
+        result = psutil.cpu_percent()
+        popup = Popup(title='CPU Usage',
+                      content=Label(text='Your current CPU usage is: ' + str(result) + '%'),
+                      size_hint=(None, None), size=(400, 400))
+        popup.open()
 
     def clkEXIT(self, obj):
         App.get_running_app().stop()
@@ -40,5 +43,3 @@ class myApp(App):
 
 if __name__ == "__main__":
     myApp().run()
-
-##adding a comment for no real reason

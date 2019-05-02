@@ -29,10 +29,10 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="361" />
-    <option name="width" value="1433" />
-    <option name="height" value="1167" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="1266" />
+    <option name="width" value="1299" />
+    <option name="height" value="1405" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">

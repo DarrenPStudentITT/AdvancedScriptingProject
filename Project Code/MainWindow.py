@@ -16,7 +16,7 @@ now = datetime.datetime.now() #Gets the current date/time
 
 
 class appLayout(BoxLayout): #This program works by essentially "rendering" everything first,
-                            # which is what all the below code does
+                            #which is what all the below code does
     def __init__(self):
         super(appLayout, self).__init__() #Define the layout of the MainWindow
 

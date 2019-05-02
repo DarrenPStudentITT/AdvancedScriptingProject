@@ -18,10 +18,14 @@ class appLayout(BoxLayout):
         btn = Button(text = "What is my current CPU usage?")
         btn.bind(on_press = self.clk)
 
+        btnREAD = Button(text = "Read Previous Results")
+        btnREAD.bind(on_press = self.clkREAD)
+
         btnEXIT = Button(text="Exit Application")
         btnEXIT.bind(on_press = self.clkEXIT)
 
         self.add_widget(btn)
+        self.add_widget(btnREAD)
         self.add_widget(btnEXIT)
 
     def clk(self, obj):
@@ -32,6 +36,16 @@ class appLayout(BoxLayout):
         popup = Popup(title = 'CPU Usage',
                       size_hint=(None, None),
                       content = Label(text='Your current CPU usage is: ' + str(result) + '%'),
+                      size=(400, 400))
+        popup.open()
+
+    def clkREAD(self, obj):
+        f = open("CPU_TestResults.txt", "r")
+        contents = f.read()
+
+        popup = Popup(title='CPU Results Log',
+                      size_hint=(None, None),
+                      content=Label(text=contents),
                       size=(400, 400))
         popup.open()
 

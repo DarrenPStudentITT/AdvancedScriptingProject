@@ -1,4 +1,5 @@
 import psutil
+import datetime
 from kivy.app import App
 from kivy.core.window import Window
 from kivy.logger import Logger
@@ -6,6 +7,8 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
 from kivy.uix.label import Label
 from kivy.uix.popup import Popup
+
+now = datetime.datetime.now()
 
 
 class appLayout(BoxLayout):
@@ -23,6 +26,9 @@ class appLayout(BoxLayout):
 
     def clk(self, obj):
         result = psutil.cpu_percent()
+        f = open("CPU_TestResults.txt", "a+")
+        f.write("\n" + now.strftime("%Y-%m-%d %H:%M \t Your current CPU usage is: ") + str(result))
+
         popup = Popup(title = 'CPU Usage',
                       size_hint=(None, None),
                       content = Label(text='Your current CPU usage is: ' + str(result) + '%'),
